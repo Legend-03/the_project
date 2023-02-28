@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pages/screens/login_page.dart';
+import 'package:pages/screens/login_screen.dart';
 
 TextField reusableTextField(String text, IconData icon, bool isPasswordType,
     TextEditingController controller) {
