@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 
 import '../util/resuable_widgets.dart';
-import '../home_page.dart';
+import '../dashboard_page.dart';
 // import 'home_page.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -13,7 +13,7 @@ class SignUpScreen extends StatefulWidget {
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
-
+ 
 class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();

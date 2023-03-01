@@ -69,10 +69,10 @@ class _HomePageState extends State<HomePage> {
     // var habitList;
     return Scaffold(
         backgroundColor: Colors.grey[300],
-        appBar: AppBar(
-          backgroundColor: Colors.teal[900],
-          title: const Text('Your Habits'),
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: Colors.teal[900],
+        //   title: const Text('Your Habits'),
+        // ),
 
 // ----------------------------------------------------------
         body: ListView.builder(

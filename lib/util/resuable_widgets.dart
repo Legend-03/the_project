@@ -47,7 +47,7 @@ Container SignInSignUpButton(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          LoginPage()));
+                                          LoginScreen()));
                             // },
         },
         style: ButtonStyle(

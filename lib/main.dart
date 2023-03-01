@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pages/home_page.dart';
+import 'package:pages/dashboard_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:pages/drawer_page.dart';
 import 'package:pages/screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 
-void main() {
-  //  Firebase.initializeApp()
-  // runApp(const MyApp());
-  runApp(const MainPage());
+Future<void> main() async{
+  
+  WidgetsFlutterBinding.ensureInitialized();  //To avoid NO FIREBASE
+  await Firebase.initializeApp();             //APP error
+
+  runApp(MainPage());
 }
 
 // class MyApp extends StatelessWidget {
@@ -38,8 +41,8 @@ class MainPage extends StatelessWidget{
       theme: ThemeData(
       primarySwatch: Colors.green,),
 
-      home:  LoginPage(),
-
+      home:  LoginScreen(),
+      // home:DrawerPage(),
       // color: Color.fromARGB(255,30,138,111),
       // Color.fromARGB(255, 30, 138, 111))
       

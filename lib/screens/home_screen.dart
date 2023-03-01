@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pages/screens/login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -42,12 +43,17 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 10),
               // trigger an action related to primary content
               // to trigger an action or show progress and confirmation
-              ActionChip(label: Text("Logout"),
-                  onPressed: () {}),
+              ElevatedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: ((context) => LoginScreen())));
+              }, child: Text("logout"))
+              // ActionChip(label: Text("Logout"),
+              //     onPressed: () {
+              //       LoginScreen();
+              //     }),
             ],
           ),
         ),
       ),
     );
   }
-}
+} 

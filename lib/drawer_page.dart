@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pages/dashboard_page.dart';
+import 'package:pages/screens/home_screen.dart';
 import 'package:pages/tabs/about.dart';
 import 'package:pages/tabs/dashboard.dart';
 import 'package:pages/tabs/settings.dart';
 
-import '../lib/util/header_drawer.dart';
+import 'util/header_drawer.dart';
 
 
 
@@ -17,18 +19,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: DrawerPage(),
     );
   }
 }
 
-// -------------------------HomePage---------------------------------
-class HomePage extends StatefulWidget {
+// -------------------------DrawerPage---------------------------------
+class DrawerPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _DrawerPageState createState() => _DrawerPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DrawerPageState extends State<DrawerPage> {
     // Current page as Dashboard
   var currentPage = DrawerSections.dashboard;
 
@@ -36,16 +38,18 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var container;
     if (currentPage == DrawerSections.dashboard) {
-      container = DashboardPage();
+      container = HomePage();
     } else if (currentPage == DrawerSections.about) {
       container = AboutPage();
     } else if (currentPage == DrawerSections.settings) {
       container = SettingsPage();
+    } else if (currentPage == DrawerSections.logout) {
+      container = HomeScreen();
     } 
     return Scaffold(
       // Code for AppBar
       appBar: AppBar(
-        backgroundColor: Colors.yellow[800],
+        backgroundColor: Color.fromARGB(255, 30, 138, 111),
         title: Text("Habits"),
       ),
       body: container,
@@ -71,10 +75,12 @@ class _HomePageState extends State<HomePage> {
 
       // Widget: configuration for an element
     return Container(
+      // backgroundColor: Color.fromARGB(255, 30, 138, 111),
 // LTRB: Left, Top, Right, Bottom; STEB: Start, Top, End, Bottom
       padding: EdgeInsets.only(
         top: 15,
       ),
+      
       child: Column(
         // shows the list of menu drawer
         children: [
@@ -84,6 +90,8 @@ class _HomePageState extends State<HomePage> {
               currentPage == DrawerSections.about ? true : false),
           menuItem(3, "Settings", Icons.settings_outlined,
               currentPage == DrawerSections.settings ? true : false),
+          menuItem(4, "Logout", Icons.logout,
+              currentPage == DrawerSections.logout ? true : false),
           
         ],
       ),
@@ -104,6 +112,8 @@ class _HomePageState extends State<HomePage> {
               currentPage = DrawerSections.about;
             } else if (id == 3) {
               currentPage = DrawerSections.settings;
+            } else if (id == 4) {
+              currentPage = DrawerSections.logout;
             } 
           });
         },
@@ -140,6 +150,7 @@ class _HomePageState extends State<HomePage> {
 enum DrawerSections {
   dashboard,
   about,
-  settings
+  settings,
+  logout
   
 }
